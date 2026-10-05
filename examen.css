@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+  --color-principal: #6B3030;
+  --color-fondo: #FAF6F0;
+  --color-texto: #2B1E1E;
+  --color-blanco: #f5f3e4fe;
+  --color-rojo: #DC3545;
+  --color-exito: #28A745;
+  --sombra: 0 4px 20px rgba(107,48,48,0.1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; color: var(--color-texto); background: var(--color-fondo); line-height: 1.6; position: relative; min-height: 100vh; }
+h1, h2, .logo-text { font-family: 'Playfair Display', serif; }
+a { text-decoration: none; color: inherit; }
+button { font-family: inherit; cursor: pointer; }
+:focus-visible { outline: 3px solid var(--color-principal); outline-offset: 3px; }
+
+.bg-pattern {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.05;
+  background-image:
+    radial-gradient(circle at 20% 30%, var(--color-principal) 2px, transparent 2px),
+    radial-gradient(circle at 60% 70%, var(--color-principal) 2px, transparent 2px),
+    radial-gradient(circle at 85% 15%, var(--color-principal) 2px, transparent 2px);
+  background-size: 140px 140px;
+}
+
+.site-header, .exam-main { position: relative; z-index: 1; }
+.site-header { background: var(--color-blanco); box-shadow: var(--sombra); padding: 1rem 0; }
+.header-inner { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; }
+.logo { display: flex; align-items: center; gap: 0.6rem; color: var(--color-principal); width: fit-content; }
+
+/* ========== TU ESCUDO OFICIAL ========== */
+.logo-img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  display: block;
+}
+
+.logo-text { font-size: 1rem; letter-spacing: 0.06em; font-weight: 600; }
+.logo-text em { font-style: italic; font-weight: 400; }
+
+.exam-main { display: flex; justify-content: center; padding: 3.5rem 1.5rem; }
+.exam-card {
+  background: var(--color-blanco);
+  border-radius: 16px;
+  box-shadow: var(--sombra);
+  max-width: 560px;
+  width: 100%;
+  padding: 3rem 2.2rem;
+  text-align: center;
+}
+.exam-icon { color: var(--color-principal); margin-bottom: 1rem; }
+.exam-card h1 { font-size: 1.6rem; margin-bottom: 2rem; }
+
+.exam-details {
+  text-align: left;
+  background: var(--color-fondo);
+  border-radius: 10px;
+  padding: 1.3rem 1.5rem;
+  margin-bottom: 2rem;
+}
+.exam-details p { padding: 0.4rem 0; font-size: 0.95rem; }
+
+.instructions { text-align: left; margin-bottom: 2.2rem; }
+.instructions h2 { font-size: 1.1rem; margin-bottom: 0.8rem; color: var(--color-principal); }
+.instructions ul { padding-left: 1.3rem; }
+.instructions li { margin-bottom: 0.4rem; color: #55403f; }
+
+.exam-actions { display: flex; flex-direction: column; gap: 1rem; }
+.btn { display: inline-block; padding: 0.85rem 1.8rem; border-radius: 10px; font-weight: 600; border: none; font-size: 0.95rem; transition: all 0.3s ease; }
+.btn-primary { background: var(--color-principal); color: var(--color-blanco); }
+.btn-primary:hover { transform: scale(1.03); box-shadow: var(--sombra); }
+.btn-outline { background: transparent; border: 1.5px solid var(--color-principal); color: var(--color-principal); }
+.btn-outline:hover { background: var(--color-principal); color: var(--color-blanco); }
+
+@media (min-width: 576px) {
+  .exam-actions { flex-direction: row; justify-content: center; }
+}

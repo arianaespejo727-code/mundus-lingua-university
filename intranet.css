@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+  --color-principal: #6B3030;
+  --color-fondo: #FAF6F0;
+  --color-texto: #2B1E1E;
+  --color-blanco: #fae7c9;
+  --color-rojo: #DC3545;
+  --color-exito: #28A745;
+  --sombra: 0 4px 20px rgba(107,48,48,0.1);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Inter', sans-serif; color: var(--color-texto); background: var(--color-fondo); min-height: 100vh; }
+h1, h2, .logo span { font-family: 'Playfair Display', serif; }
+a { text-decoration: none; color: inherit; }
+button { font-family: inherit; cursor: pointer; }
+:focus-visible { outline: 3px solid var(--color-principal); outline-offset: 3px; }
+
+.intranet-header { background: var(--color-blanco); box-shadow: var(--sombra); padding: 1rem 0; }
+.header-inner { max-width: 900px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; }
+.logo { display: flex; align-items: center; gap: 0.6rem; color: var(--color-principal); }
+.logo span { font-size: 1rem; letter-spacing: 0.06em; font-weight: 600; }
+.logo em { font-style: italic; font-weight: 400; }
+
+/* ========== TU ESCUDO OFICIAL ========== */
+.logo-img {
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  display: block;
+}
+
+.btn { padding: 0.6rem 1.3rem; border-radius: 8px; font-weight: 600; font-size: 0.88rem; transition: all 0.3s ease; }
+.btn-outline { background: transparent; border: 1.5px solid var(--color-principal); color: var(--color-principal); }
+.btn-outline:hover { background: var(--color-principal); color: var(--color-blanco); }
+
+.intranet-main { max-width: 700px; margin: 0 auto; padding: 4rem 1.5rem; }
+
+.welcome-block { text-align: center; margin-bottom: 3rem; }
+.welcome-icon { color: var(--color-principal); margin-bottom: 1rem; }
+.welcome-block h1 { font-size: 1.9rem; margin-bottom: 0.5rem; }
+.welcome-block p { color: #6a5555; }
+
+.profile-card {
+  background: var(--color-blanco);
+  border-radius: 14px;
+  box-shadow: var(--sombra);
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+.avatar {
+  width: 68px; height: 68px;
+  border-radius: 50%;
+  background: var(--color-principal);
+  color: var(--color-blanco);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+.profile-info h2 { font-size: 1.25rem; margin-bottom: 0.3rem; }
+.profile-info p { color: #6a5555; margin-bottom: 0.6rem; }
+.profile-extra { display: flex; gap: 1.2rem; font-size: 0.85rem; color: #8a7676; flex-wrap: wrap; }
+
+@media (max-width: 480px) {
+  .profile-card { flex-direction: column; text-align: center; }
+  .profile-extra { justify-content: center; }
+}

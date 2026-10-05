@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="matricula.css">
+<link class="icon" type="image/png" href="img/ICONOMUNDUS.png">
+<title>Mundus Lingua | Matrícula</title>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <img src="img/ICONOMUNDUS.png" alt="Icono Mundus Lingua" class="logo-icono" width="30" height="30">
+      <span class="logo-text">MUNDUS <em>LINGUA</em></span>
+    </a>
+    <a href="index.html" class="back-link">← Volver al inicio</a>
+  </div>
+</header>
+
+<main class="matricula-main">
+  <div class="form-card">
+    <h1>Proceso de Matrícula — Mundus Lingua</h1>
+    <p class="subtitle">Completa tus datos para iniciar tu viaje lingüístico</p>
+
+    <form id="matriculaForm">
+      <fieldset>
+        <legend>Datos Personales</legend>
+
+        <div class="field">
+          <label for="nombre">Nombre <span class="req">*</span></label>
+          <input type="text" id="nombre" placeholder="Ej: María" required>
+        </div>
+        <div class="field">
+          <label for="apellido">Apellido <span class="req">*</span></label>
+          <input type="text" id="apellido" placeholder="Ej: González" required>
+        </div>
+        <div class="field">
+          <label for="correo">Correo electrónico <span class="req">*</span></label>
+          <input type="email" id="correo" placeholder="tucorreo@ejemplo.com" required>
+        </div>
+        <div class="field">
+          <label for="celular">Teléfono Celular <span class="req">*</span></label>
+          <input type="tel" id="celular" placeholder="Ej: 987654321" required>
+        </div>
+
+        <div class="field text-field-password">
+          <label for="password">Crea una contraseña <span class="req">*</span></label>
+          <div style="position: relative; display: flex; align-items: center;">
+            <input type="password" id="password" placeholder="Mínimo 6 caracteres" required style="padding-right: 45px;">
+            <button type="button" onclick="alternarPassword()" style="position: absolute; right: 10px; background: transparent; border: none; cursor: pointer; font-size: 1.1rem; color: #6B3030;">👁️</button>
+          </div>
+        </div>
+
+        <!-- Campo de fecha de nacimiento nativo arreglado -->
+        <div class="field">
+          <label for="nacimiento">Fecha de Nacimiento <span class="req">*</span></label>
+          <input 
+            type="date" 
+            id="nacimiento" 
+            required
+          >
+        </div>
+
+        <div class="field">
+          <label for="sexo">Sexo <span class="req">*</span></label>
+          <select id="sexo" required>
+            <option value="" selected disabled>Selecciona...</option>
+            <option value="Hombre">Hombre</option>
+            <option value="Mujer">Mujer</option>
+            <option value="Otro">Otro</option>
+          </select>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Información Adicional</legend>
+
+        <div class="field">
+          <label for="distrito">Distrito <span class="req">*</span></label>
+          <select id="distrito" required>
+            <option value="" selected disabled>Selecciona...</option>
+            <option>La Molina</option>
+            <option>Miraflores</option>
+            <option>San Isidro</option>
+            <option>Santiago de Surco</option>
+            <option>San Borja</option>
+            <option>Lince</option>
+            <option>Jesús María</option>
+            <option>San Miguel</option>
+            <option>Magdalena</option>
+            <option>Pueblo Libre</option>
+            <option>Barranco</option>
+            <option>Otro</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="colegio">Colegio de procedencia <span class="req">*</span></label>
+          <select id="colegio" required>
+            <option value="" selected disabled>Selecciona...</option>
+            <option>Nacional</option>
+            <option>Privado</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="direccion">Dirección de casa <span class="req">*</span></label>
+          <input type="text" id="direccion" placeholder="Ej: Jr. Las Flores 123" required>
+        </div>
+        <div class="field">
+          <label for="apoderado">Nombre del apoderado <span class="req">*</span></label>
+          <input type="text" id="apoderado" placeholder="Ej: Juan Pérez" required>
+        </div>
+        <div class="field">
+          <label for="emergencia">Teléfono de emergencia <span class="req">*</span></label>
+          <input type="tel" id="emergencia" placeholder="Ej: 987654321" required>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Voucher de Pago Yape</legend>
+        <label class="upload-area" for="voucher">
+          <svg viewBox="0 0 24 24" width="34" height="34"><path fill="currentColor" d="M12 3c-.8 0-1.5.4-2 1L8.5 6H5a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-3.5L14 4a2.5 2.5 0 0 0-2-1zm0 5.5a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/></svg>
+          <p>Arrastra tu comprobante o haz clic para seleccionar</p>
+          <input type="file" id="voucher" accept="image/*" hidden>
+          <span id="voucherName"></span>
+        </label>
+      </fieldset>
+
+      <fieldset>
+        <legend>Simulación de Pago</legend>
+        <div class="field">
+          <label for="claveYape">Clave de confirmación Yape <span class="req">*</span></label>
+          <input type="text" id="claveYape" placeholder="Ingresa tu clave">
+        </div>
+        <!-- Modificado type="button" y añadido onclick para evitar bloqueos del navegador -->
+        <button type="button" id="verificarBtn" class="btn btn-primary" onclick="registrarAlumno(event)">Verificar Pago e Inscribirse</button>
+        <p id="yapeError" class="error-msg"></p>
+      </fieldset>
+    </form>
+  </div>
+</main>
+
+<!-- MODAL DE CONFIRMACIÓN -->
+<div class="modal-backdrop" id="modalBackdrop">
+  <div class="modal-card" id="modalCard">
+    <div class="confetti-wrap" id="confettiWrap"></div>
+    <svg class="modal-icon" viewBox="0 0 24 24" width="60" height="60"><path fill="currentColor" d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4L12 2z"/></svg>
+    <h2>¡Matriculado, ingresaste a tu examen de admisión!</h2>
+    <p>Tu lugar está asegurado en Mundus Lingua</p>
+    <button id="continuarBtn" class="btn btn-primary">Continuar al acceso</button>
+  </div>
+</div>
+
+<!-- MODAL DE CARGA -->
+<div class="modal-backdrop" id="loadingBackdrop" style="z-index: 300;">
+  <div class="modal-card" style="max-width: 300px;">
+    <p>⏳ Guardando datos...</p>
+  </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

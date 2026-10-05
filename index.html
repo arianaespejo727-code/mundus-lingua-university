@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="index.css">
+<link rel="icon" type="image/png" href="img/ICONOMUNDUS.png">
+<title>Mundus Lingua | Inicio</title>
+
+</head>
+<body>
+
+<header class="site-header" id="siteHeader">
+  <div class="header-inner">
+    <a href="index.html" class="logo" aria-label="Mundus Lingua - Inicio">
+      <img src="img/ICONOMUNDUS.png" alt="Icono Mundus Lingua" class="logo-icono">
+      <span class="logo-text">MUNDUS <em>LINGUA</em></span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html" class="active">Inicio</a>
+
+      <div class="dropdown-wrap" id="cursosDropdown">
+        <button class="dropdown-trigger" onclick="toggleDropdown()">
+          Cursos
+          <svg class="dropdown-chevron" viewBox="0 0 10 6" width="10" height="6" aria-hidden="true">
+            <path fill="currentColor" d="M1 1l4 4 4-4"/>
+          </svg>
+        </button>
+        <div class="dropdown-menu">
+          <a href="curso1.html" class="dropdown-item">
+            <span class="dropdown-num">01</span>
+            <span class="dropdown-label">Italiano</span>
+          </a>
+          <a href="curso2.html" class="dropdown-item">
+            <span class="dropdown-num">02</span>
+            <span class="dropdown-label">Inglés</span>
+          </a>
+          <a href="curso3.html" class="dropdown-item">
+            <span class="dropdown-num">03</span>
+            <span class="dropdown-label">Francés</span>
+          </a>
+          <a href="curso4.html" class="dropdown-item">
+            <span class="dropdown-num">04</span>
+            <span class="dropdown-label">Chino Mandarín</span>
+          </a>
+        </div>
+      </div>
+
+      <a href="matricula.html">Matrícula</a>
+      <a href="login.html" class="nav-cta">Acceso Alumnos</a>
+      <button class="nav-salir" onclick="salirPagina()" title="Cerrar página">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+          <polyline points="16 17 21 12 16 7"/>
+          <line x1="21" y1="12" x2="9" y2="12"/>
+        </svg>
+        Salir
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="hero-content">
+      <p class="hero-eyebrow">Instituto de Lenguas y Culturas</p>
+      <h1>Abre las puertas al mundo</h1>
+      <p class="hero-subtitle">Domina idiomas, conquista culturas. En Mundus Lingua transformamos tu potencial en fluidez global.</p>
+      <a href="#cursos" class="btn btn-primary">Explora nuestros cursos</a>
+    </div>
+    <div class="hero-meridian" aria-hidden="true"></div>
+  </section>
+
+  <div class="separador-hero-showcase">
+    <div class="separador-linea"></div>
+    <svg class="separador-icono" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+    </svg>
+    <div class="separador-linea"></div>
+  </div>
+
+  <section class="showcase" aria-label="Vitrina de idiomas">
+    <div class="showcase-track" id="showcaseTrack">
+      <div class="showcase-slide is-active">
+        <img src="img/Italy_ Manarola Moonrise.jpg" alt="Paisaje de Italia">
+        <div class="showcase-overlay">
+          <span>01 — Italiano</span>
+          <p>La dolce vita comienza con las palabras correctas</p>
+        </div>
+      </div>
+      <div class="showcase-slide">
+        <img src="img/NYC.jpg" alt="Paisaje de un país de habla inglesa">
+        <div class="showcase-overlay">
+          <span>02 — Inglés</span>
+          <p>El idioma que conecta al planeta entero</p>
+        </div>
+      </div>
+      <div class="showcase-slide">
+        <img src="img/Paris Dream View_ Eiffel Tower & Cozy Cafe Balcony.jpg" alt="Paisaje de Francia">
+        <div class="showcase-overlay">
+          <span>03 — Francés</span>
+          <p>La langue de l'amour et de la diplomatie</p>
+        </div>
+      </div>
+      <div class="showcase-slide">
+        <img src="img/548805904618501821.jpg" alt="Paisaje de China">
+        <div class="showcase-overlay">
+          <span>04 — Chino Mandarín</span>
+          <p>El idioma del futuro, hablado por mil millones</p>
+        </div>
+      </div>
+    </div>
+    <div class="showcase-arrows">
+      <button id="showcasePrev" aria-label="Imagen anterior">&#8249;</button>
+      <button id="showcaseNext" aria-label="Imagen siguiente">&#8250;</button>
+    </div>
+    <div class="showcase-dots" id="showcaseDots"></div>
+  </section>
+
+  <section class="courses" id="cursos">
+    <h2 class="section-title">Nuestros Programas de Idiomas</h2>
+    <p class="section-subtitle">Cuatro lenguas, cuatro puertas distintas hacia el mundo.</p>
+
+    <div class="courses-grid">
+      <article class="course-card">
+        <div class="course-thumb"><img src="img/italimundu.png" alt="Curso de Italiano"></div>
+        <div class="course-flag" aria-hidden="true">
+          <img src="img/xdddd-Photoroom (1).png" alt="Icono Italia">
+        </div>
+        <h3>Italiano</h3>
+        <p>La dolce vita comienza con las palabras correctas</p>
+        <a href="curso1.html" class="btn btn-outline">Ver programa</a>
+      </article>
+
+      <article class="course-card">
+        <div class="course-thumb"><img src="img/eeuumundu.png" alt="Curso de Inglés"></div>
+        <div class="course-flag" aria-hidden="true">
+          <img src="img/xdddd-Photoroom (1).png" alt="Icono Reino Unido">
+        </div>
+        <h3>Inglés</h3>
+        <p>El idioma que conecta al planeta entero</p>
+        <a href="curso2.html" class="btn btn-outline">Ver programa</a>
+      </article>
+
+      <article class="course-card">
+        <div class="course-thumb"><img src="img/munduifranci.png" alt="Curso de Francés"></div>
+        <div class="course-flag" aria-hidden="true">
+          <img src="img/xdddd-Photoroom (1).png" alt="Icono Francia">
+        </div>
+        <h3>Francés</h3>
+        <p>La langue de l'amour et de la diplomatie</p>
+        <a href="curso3.html" class="btn btn-outline">Ver programa</a>
+      </article>
+
+      <article class="course-card">
+        <div class="course-thumb"><img src="img/chinamundu.png" alt="Curso de Chino Mandarín"></div>
+        <div class="course-flag" aria-hidden="true">
+          <img src="img/xdddd-Photoroom (1).png" alt="Icono China">
+        </div>
+        <h3>Chino Mandarín</h3>
+        <p>El idioma del futuro, hablado por mil millones</p>
+        <a href="curso4.html" class="btn btn-outline">Ver programa</a>
+      </article>
+    </div>
+  </section>
+
+  <section class="location">
+    <h2 class="section-title">Encuéntranos</h2>
+    <p class="location-address">📍 Av. Javier Prado Este 123, San Isidro, Lima</p>
+    <div class="map-wrap">
+      <iframe
+        src="https://www.google.com/maps?q=Av.+Javier+Prado+Este+123,+San+Isidro,+Lima&output=embed"
+        width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade" title="Ubicación de Mundus Lingua">
+      </iframe>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col">
+      <a href="index.html" class="logo footer-logo">
+        <img src="img/ICONOMUNDUS.png" alt="Icono Mundus Lingua" class="logo-icono" width="30" height="30">
+        <span class="logo-text">MUNDUS <em>LINGUA</em></span>
+      </a>
+      <p>Instituto de Lenguas y Culturas. Formamos hablantes seguros y ciudadanos del mundo.</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <p>Av. Javier Prado Este 123, San Isidro, Lima</p>
+      <p>+51 1 234 5678</p>
+    </div>
+
+    <div class="footer-col">
+      <h4>Síguenos</h4>
+      <div class="social-icons">
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M13.5 22v-8.5h2.85l.43-3.3H13.5V8c0-.96.27-1.6 1.64-1.6h1.75V3.47C16.56 3.42 15.5 3.3 14.3 3.3c-2.5 0-4.2 1.53-4.2 4.34v2.56H7.25v3.3h2.85V22h3.4z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 2.2c2.7 0 3 0 4 .05 1 .05 1.7.2 2.3.45.6.25 1.1.6 1.6 1.1.5.5.85 1 1.1 1.6.25.6.4 1.3.45 2.3.05 1 .05 1.3.05 4s0 3-.05 4c-.05 1-.2 1.7-.45 2.3-.25.6-.6 1.1-1.1 1.6-.5.5-1 .85-1.6 1.1-.6.25-1.3.4-2.3.45-1 .05-1.3.05-4 .05s-3 0-4-.05c-1-.05-1.7-.2-2.3-.45-.6-.25-1.1-.6-1.6-1.1-.5-.5-.85-1-1.1-1.6-.25-.6-.4-1.3-.45-2.3C2.2 15 2.2 14.7 2.2 12s0-3 .05-4c.05-1 .2-1.7.45-2.3.25-.6.6-1.1 1.1-1.6.5-.5 1-.85 1.6-1.1.6-.25 1.3-.4 2.3-.45C9 2.2 9.3 2.2 12 2.2zm0 1.8c-2.65 0-2.97 0-4 .05-.86.04-1.32.18-1.63.3-.41.16-.7.35-1 .65-.3.3-.49.59-.65 1-.12.31-.26.77-.3 1.63-.05 1.03-.05 1.35-.05 4s0 2.97.05 4c.04.86.18 1.32.3 1.63.16.41.35.7.65 1 .3.3.59.49 1 .65.31.12.77.26 1.63.3 1.03.05 1.35.05 4 .05s2.97 0 4-.05c.86-.04 1.32-.18 1.63-.3.41-.16.7-.35 1-.65.3-.3.49-.59.65-1 .12-.31.26-.77.3-1.63.05-1.03.05-1.35.05-4s0-2.97-.05-4c-.04-.86-.18-1.32-.3-1.63a2.7 2.7 0 0 0-.65-1 2.7 2.7 0 0 0-1-.65c-.31-.12-.77-.26-1.63-.3-1.03-.05-1.35-.05-4-.05zm0 3.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9zm0 1.8a2.7 2.7 0 1 0 0 5.4 2.7 2.7 0 0 0 0-5.4zm5.7-1.98a1.05 1.05 0 1 1-2.1 0 1.05 1.05 0 0 1 2.1 0z"/></svg></a>
+        <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M6.94 8.5H3.56V20.4h3.38V8.5zM5.25 3.6a1.96 1.96 0 1 0 0 3.92 1.96 1.96 0 0 0 0-3.92zM20.4 20.4h-3.37v-6.24c0-1.49-.03-3.4-2.07-3.4-2.08 0-2.4 1.62-2.4 3.3v6.34H9.2V8.5h3.24v1.62h.05c.45-.85 1.55-1.75 3.2-1.75 3.42 0 4.05 2.25 4.05 5.18v6.85z"/></svg></a>
+        <a href="#" aria-label="Twitter / X"><svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M17.5 3h3.1l-6.8 7.77L22 21h-6.25l-4.9-6.4L4.9 21H1.8l7.28-8.3L2 3h6.4l4.42 5.86L17.5 3zm-1.1 16.2h1.72L7.7 4.7H5.86l10.54 14.5z"/></svg></a>
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Documentos</h4>
+      <a href="javascript:void(0)" class="claims-link" title="Libro de Reclamaciones" onclick="abrirReclamos(); return false;">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 5.5C4 4.67 4.67 4 5.5 4H11a1 1 0 0 1 1 1v14.5a.5.5 0 0 1-.76.43C10.1 19.13 8.3 18.5 6.2 18.5H5.5A1.5 1.5 0 0 1 4 17V5.5z"/>
+          <path d="M20 5.5c0-.83-.67-1.5-1.5-1.5H13a1 1 0 0 0-1 1v14.5a.5.5 0 0 0 .76.43c1.14-.8 2.94-1.43 5.04-1.43h.7A1.5 1.5 0 0 0 20 17V5.5z"/>
+        </svg>
+        Libro de Reclamaciones
+      </a>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Mundus Lingua. Todos los derechos reservados.</div>
+</footer>
+
+<script>
+(function(){
+  var header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', function(){
+    if (window.scrollY > 40) header.classList.add('scrolled');
+    else header.classList.remove('scrolled');
+  });
+
+  var toggle = document.getElementById('menuToggle');
+  var nav = document.getElementById('mainNav');
+  toggle.addEventListener('click', function(){
+    var isOpen = nav.classList.toggle('is-open');
+    toggle.classList.toggle('is-open', isOpen);
+    toggle.setAttribute('aria-expanded', isOpen);
+  });
+
+  window.toggleDropdown = function() {
+    document.getElementById('cursosDropdown').classList.toggle('open');
+  };
+  document.addEventListener('click', function(e){
+    if (!e.target.closest('#cursosDropdown')) {
+      document.getElementById('cursosDropdown').classList.remove('open');
+    }
+  });
+
+  var slides = document.querySelectorAll('.showcase-slide');
+  var dotsWrap = document.getElementById('showcaseDots');
+  var current = 0;
+  var timer;
+
+  slides.forEach(function(_, i){
+    var dot = document.createElement('button');
+    dot.setAttribute('aria-label', 'Ir a la imagen ' + (i+1));
+    if (i === 0) dot.classList.add('is-active');
+    dot.addEventListener('click', function(){ goTo(i); resetTimer(); });
+    dotsWrap.appendChild(dot);
+  });
+  var dots = dotsWrap.querySelectorAll('button');
+
+  function goTo(index){
+    slides[current].classList.remove('is-active');
+    dots[current].classList.remove('is-active');
+    current = (index + slides.length) % slides.length;
+    slides[current].classList.add('is-active');
+    dots[current].classList.add('is-active');
+  }
+
+  function resetTimer(){
+    clearInterval(timer);
+    timer = setInterval(function(){ goTo(current + 1); }, 5000);
+  }
+
+  document.getElementById('showcaseNext').addEventListener('click', function(){ goTo(current+1); resetTimer(); });
+  document.getElementById('showcasePrev').addEventListener('click', function(){ goTo(current-1); resetTimer(); });
+
+  resetTimer();
+
+  window.salirPagina = function() {
+    document.getElementById('salirOverlay').classList.add('is-visible');
+  };
+
+  window.abrirReclamos = function() {
+    document.getElementById('reclamosOverlay').classList.add('is-visible');
+  };
+  window.cerrarReclamos = function() {
+    document.getElementById('reclamosOverlay').classList.remove('is-visible');
+  };
+  window.enviarReclamo = function(e) {
+    e.preventDefault();
+    document.getElementById('reclamosForm').style.display = 'none';
+    document.getElementById('reclamosGracias').style.display = 'block';
+  };
+})();
+</script>
+
+<div class="salir-overlay-full" id="salirOverlay">
+  <div class="salir-bg"></div>
+  <div class="salir-content-overlay">
+    <div class="salir-logo-overlay">
+      <img src="img/ICONOMUNDUS.png" alt="Icono Mundus Lingua" class="salir-logo-icono" width="40" height="40">
+      <span>MUNDUS <em>LINGUA</em></span>
+    </div>
+    <div class="salir-linea"></div>
+    <h1 class="salir-mensaje-overlay">
+      Gracias por visitar<br>nuestra universidad<br>Mundus Lingua
+    </h1>
+    <p class="salir-sub-overlay">
+      Esperamos verte pronto. ¡Que tengas un excelente día!
+    </p>
+    <button class="salir-btn-overlay" onclick="window.location.reload()">← Volver al inicio</button>
+  </div>
+  <div class="salir-footer-overlay">© 2026 Mundus Lingua. Todos los derechos reservados.</div>
+</div>
+
+<div class="reclamos-overlay" id="reclamosOverlay">
+  <div class="reclamos-modal">
+    <button class="reclamos-close" onclick="cerrarReclamos()" aria-label="Cerrar">&times;</button>
+
+    <div class="reclamos-modal-header">
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 5.5C4 4.67 4.67 4 5.5 4H11a1 1 0 0 1 1 1v14.5a.5.5 0 0 1-.76.43C10.1 19.13 8.3 18.5 6.2 18.5H5.5A1.5 1.5 0 0 1 4 17V5.5z"/>
+        <path d="M20 5.5c0-.83-.67-1.5-1.5-1.5H13a1 1 0 0 0-1 1v14.5a.5.5 0 0 0 .76.43c1.14-.8 2.94-1.43 5.04-1.43h.7A1.5 1.5 0 0 0 20 17V5.5z"/>
+      </svg>
+      <h2>Libro de Reclamaciones</h2>
+    </div>
+
+    <p class="reclamos-intro">
+      Conforme a lo establecido en el Código de Protección y Defensa del Consumidor, este establecimiento cuenta con un Libro de Reclamaciones a tu disposición.
+    </p>
+
+    <form class="reclamos-form" id="reclamosForm" onsubmit="enviarReclamo(event)">
+      <div class="reclamos-row">
+        <div class="reclamos-field">
+          <label for="rNombre">Nombre</label>
+          <input type="text" id="rNombre" required>
+        </div>
+        <div class="reclamos-field">
+          <label for="rApellido">Apellido</label>
+          <input type="text" id="rApellido" required>
+        </div>
+      </div>
+
+      <div class="reclamos-row">
+        <div class="reclamos-field">
+          <label for="rCorreo">Correo electrónico</label>
+          <input type="email" id="rCorreo" required>
+        </div>
+        <div class="reclamos-field">
+          <label for="rTipo">Tipo</label>
+          <select id="rTipo" required>
+            <option value="">Selecciona...</option>
+            <option value="reclamo">Reclamo</option>
+            <option value="queja">Queja</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="reclamos-field reclamos-field-full">
+        <label for="rDetalle">Detalle del reclamo o queja</label>
+        <textarea id="rDetalle" rows="4" required></textarea>
+      </div>
+
+      <button type="submit" class="btn btn-primary reclamos-submit">Enviar</button>
+    </form>
+
+    <div class="reclamos-gracias" id="reclamosGracias">
+      <svg viewBox="0 0 24 24" width="46" height="46" fill="none" stroke="var(--color-exito)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"/>
+        <polyline points="8 12 11 15 16 9"/>
+      </svg>
+      <h3>Reclamo registrado</h3>
+      <p>Gracias por tu reporte. Nuestro equipo se pondrá en contacto contigo a la brevedad.</p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

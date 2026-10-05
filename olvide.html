@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="olvide.css">
+<link rel="icon" type="image/png" href="img/ICONOMUNDUS.png">
+<title>Mundus Lingua | Recuperar Acceso</title>
+</head>
+<body>
+
+<main class="login-main">
+  <div class="login-card">
+    <div class="login-logo">
+      <img src="img/ICONOMUNDUS.png" alt="University Mundus Lingua" class="logo-img">
+      <span>MUNDUS <em>LINGUA</em></span>
+    </div>
+
+    <h1>Recuperar Acceso</h1>
+    <p class="subtitle">Te enviaremos un código de recuperación</p>
+
+    <div class="field">
+      <label for="correo">Correo electrónico</label>
+      <input type="email" id="correo" placeholder="tucorreo@ejemplo.com">
+    </div>
+
+    <div class="recovery-actions">
+      <button type="button" id="smsBtn" class="btn btn-outline">
+        <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M17 1H7a2 2 0 0 0-2 2v18a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2zm-5 20a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zM17 18H7V4h10v14z"/></svg>
+        Enviar SMS
+      </button>
+      <button type="button" id="mailBtn" class="btn btn-outline">
+        <svg viewBox="0 0 24 24" width="18" height="18"><path fill="currentColor" d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        Enviar Correo
+      </button>
+    </div>
+
+    <div id="codeReveal" class="code-reveal" hidden>
+      <p>Tu código de recuperación es:</p>
+      <span class="code-value">1234</span>
+    </div>
+
+    <a href="login.html" class="forgot-link">Volver al Login</a>
+  </div>
+</main>
+
+<script>
+(function(){
+  var codeReveal = document.getElementById('codeReveal');
+
+  function showCode(){
+    codeReveal.hidden = false;
+    codeReveal.classList.remove('fade-in');
+    void codeReveal.offsetWidth;
+    codeReveal.classList.add('fade-in');
+  }
+
+  document.getElementById('smsBtn').addEventListener('click', showCode);
+  document.getElementById('mailBtn').addEventListener('click', showCode);
+})();
+</script>
+
+</body>
+</html>

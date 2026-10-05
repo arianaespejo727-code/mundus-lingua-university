@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="intranet.css">
+<link rel="icon" type="image/png" href="img/ICONOMUNDUS.png">
+<title>Mundus Lingua | Intranet</title>
+</head>
+<body>
+
+<script>
+(function(){
+  // Protección de acceso
+  var session = localStorage.getItem('ml_session');
+  if (!session) {
+    window.location.href = 'login.html';
+  }
+})();
+</script>
+
+<header class="intranet-header">
+  <div class="header-inner">
+    <a href="intranet.html" class="logo">
+      <img src="img/ICONOMUNDUS.png" alt="University Mundus Lingua" class="logo-img">
+      <span>MUNDUS <em>LINGUA</em></span>
+    </a>
+    <button id="logoutBtn" class="btn btn-outline">Cerrar Sesión</button>
+  </div>
+</header>
+
+<main class="intranet-main">
+  <section class="welcome-block">
+    <svg class="welcome-icon" viewBox="0 0 24 24" width="56" height="56"><path fill="currentColor" d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4.72L12 21l7-3.1v-4.72l-7 3.82-7-3.82z"/></svg>
+    <h1>Bienvenido al periodo académico</h1>
+    <p>Aquí verás tus notas próximamente</p>
+  </section>
+
+  <section class="profile-card">
+    <div class="avatar" id="avatar">--</div>
+    <div class="profile-info">
+      <h2 id="profileNombre">—</h2>
+      <p id="profileCorreo">—</p>
+      <div class="profile-extra">
+        <span id="profileNacimiento"></span>
+        <span id="profileSexo"></span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+(function(){
+  // ===== REGISTRO AUTOMÁTICO DE ACCESO =====
+  const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyaApsgJP2AWmqDlAZG5-tJ627xXohWnaUN_i99zcJ2rD-QmGLyXlFH_Pt1vjNlOCsfcg/exec'; // <--- PEGA AQUÍ TU URL
+  const session = JSON.parse(localStorage.getItem('ml_session') || '{}');
+
+  if (session.nombreCompleto) {
+    fetch(APPS_SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        tipo: 'acceso_intranet',
+        nombre: session.nombreCompleto,
+        fecha: new Date().toISOString(),
+        status: 'ingreso_exitoso'
+      })
+    }).catch(err => console.log('Error de registro:', err));
+  }
+
+  // Cargar datos en pantalla
+  document.getElementById('profileNombre').textContent = session.nombreCompleto || '';
+  document.getElementById('profileCorreo').textContent = session.correo || '';
+  document.getElementById('profileNacimiento').textContent = session.nacimiento ? ('Nacimiento: ' + session.nacimiento) : '';
+  document.getElementById('profileSexo').textContent = session.sexo ? ('Sexo: ' + session.sexo) : '';
+
+  var initials = (session.nombreCompleto || '')
+    .split(' ')
+    .filter(Boolean)
+    .map(function(w){ return w[0]; })
+    .slice(0, 2)
+    .join('')
+    .toUpperCase();
+  document.getElementById('avatar').textContent = initials || '--';
+
+  document.getElementById('logoutBtn').addEventListener('click', function(){
+    localStorage.clear();
+    window.location.href = 'login.html';
+  });
+})();
+</script>
+
+</body>
+</html>
